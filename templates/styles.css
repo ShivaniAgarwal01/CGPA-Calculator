@@ -1,0 +1,39 @@
+.split{
+    height :100%;
+    position:fixed;
+    width :50%;
+    text-align : center;
+}
+
+.container{
+    padding-top:200px;
+}
+
+.container1{
+   
+    padding-top:170px;
+}
+.left{
+    left:0;
+    background-color: #F0F0F0;
+}
+
+.right{
+    right : 0;
+    background-color:#F5F5F5;
+}
+
+.form-control{
+    height:27px;
+    width :210px;
+    border-radius: 5px;
+    border-color:#E0E0E0;
+}
+
+.btn{
+    size:10px;
+    padding:8px 8px;
+    border-radius:5px;
+    border-color : #C8C8C8;
+
+}
