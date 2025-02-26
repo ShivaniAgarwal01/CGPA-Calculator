@@ -4,104 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-<style>
-      .split{
-        height :100%;
-        position:fixed;
-        width :50%;
-        text-align : center;
-    }
-    
-    .container{
-        padding-top:200px;
-    }
-    
-    .container1{
-       
-        padding-top:170px;
-    }
-    .left{
-        left:0;
-        background-color: #F0F0F0;
-    }
-    
-    .right{
-        right : 0;
-        background-color:#F5F5F5;
-    }
-    
-    .form-control{
-        height:27px;
-        width :210px;
-        border-radius: 5px;
-        border-color:#E0E0E0;
-    }
-    
-    .btn{
-        size:10px;
-        padding:8px 8px;
-        border-radius:5px;
-        border-color : #C8C8C8;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            padding-right : 40px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            {% comment %} justify-content : center;
+            align-items : center; {% endcomment %}
+            {% comment %} margin : 50px; {% endcomment %}
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width : 100px;
+            margin-left : 10px
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <div class="split left width:50%">
-                <div class="container">
-                    <h1>Welcome back</h1>
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder = "Email" name="email">
-                  </div>
-                </div>
-                <br>
-                <div class="row mb-3">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="password" name="password">
-                  </div>
-                </div>
-                <br>
-                <form action="/" method="get">
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
-            </div>
-         
-  </div>
-  
-  <div class="split right">
-    
-    <div class="container1">
-        <h1>Create an Account</h1>
-        <div class="row mt-3">
-            <label for="inputUsername" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-              <input type="name" class="form-control" id="username" placeholder = "Username" name="username">
-            </div>
-          </div>
-          <br>
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" placeholder = "Email" name="email">
-      </div>
+    <div class="container">
+        <h2>Login</h2>
+        
+        {% if form.errors %}
+            <p class="error">Invalid username or password. Please try again.</p>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
     </div>
-    <br>
-    <div class="row mb-3">
-      <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="password" name="password">
-      </div>
-    </div>
-    <br>
-    <form action="/" method="get">
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
-</div>
- 
-     
-    </div>
-  </div>
 </body>
 </html>
