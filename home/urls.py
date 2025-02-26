@@ -3,7 +3,8 @@ from django.urls import path ,include
 from home import views
 
 urlpatterns = [
+    path('signup/', views.signup_view, name='signup'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
     path('', views.cgpa_calculator, name='home'),
-    # path('login', views.login, name='login'),
-    
 ]
